@@ -1,101 +1,82 @@
-import Image from "next/image";
+import React from 'react'
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="max-w-7xl mx-auto px-4 py-6">
+      {/* Large text field */}
+      <div className="bg-gray-50 p-6 mb-6 rounded-lg shadow">
+        <h2 className="text-2xl text-red-400 font-semibold mb-4">Sứ mệnh của Cộng đoàn:</h2>
+        <p className='text-black'> Chúng tôi là một Cộng đoàn với nền tảng gia đình Công Giáo La-Mã.
+          Chúng tôi nhấn mạnh việc tái truyền giáo cho các giáo dân Việt Nam vùng Northshore của Tổng
+          Giáo Phận Boston, và giúp các anh chị em Tân Tòng trở lại đạo, cũng như giúp các bạn trẻ Công
+          Giáo Việt Nam bận rộn lo cơm áo để nuôi sống gia đình có được thời gian phù hợp, để tham dự
+          Thánh Lễ hằng tuần vào tối Thứ Bảy lúc 7:30pm.<br />
+          Tạ ơn Thiên Chúa chúc phúc. Hàng tuần chúng tôi hân hoan đón tiếp một số gương mặt
+          trẻ mới, và lâu lâu lại có một vài anh chị em Tân Tòng xin trở lại đạo. Theo đà phát triển
+          như thế, chúng tôi ôm ấp hy vọng trong tương lai, cộng đoàn chúng tôi sẽ trở thành Giáo
+          xứ Việt Nam thứ hai vùng Northshore của Tổng Giáo Phận Boston, sau Giáo xứ tiên khởi
+          Chân Phước Andre Phú Yên.<br />
+          Hàng tuần trong Thánh Lễ, chúng tôi cùng nhau cầu nguyện cho Giáo Hội, cho tương lai
+          của Cộng đoàn chúng tôi, và cho các Giáo xứ bạn được ơn đoàn kết yêu thương và cùng
+          nhau phát triển một Giáo Hội chung.<br />
+          Nguyện xin Chúa Thánh Thần ban ơn trợ giúp toàn thể anh chị em Công Giáo Việt Nam
+          vùng Boston. Xin Cha trên Trời luôn ban ơn đoàn kết và yêu thương nhau cho con dân
+          Công Giáo Việt Nam để các cộng đoàn, giáo xứ Việt Nam được phát triển lành mạnh trong
+          Ân Sủng của Chúa Giêsu Kitô. Amen </p>
+      </div>
+      
+      {/* Two column layout, stacks on mobile */}
+      <div className="flex flex-col md:grid md:grid-cols-2 gap-6">
+        {/* Left column */}
+        <div className="bg-gray-50 p-6 rounded-lg shadow">
+          <h3 className="text-xl text-red-400 font-semibold mb-4">Các Linh mục Việt Nam giúp mục vụ:</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-y-2 sm:gap-x-8">
+            {[
+              { name: "Cha Thomas Nguyễn Hoàng Duy", phone: "781-869-0644" },
+              { name: "Cha Giuse Đặng Cao Khiết", phone: "857-588-2171" },
+              { name: "Cha Phêrô Trần Chỉnh, SJ", phone: "857-381-5163" },
+              { name: "Cha Giuse Nguyễn Khang, SJ", phone: "617-276-5234" },
+              { name: "Cha cố Giuse Nguyễn Văn Điểm", phone: "617-276-5234" }
+            ].map((contact, index) => (
+              <React.Fragment key={index}>
+                <div className="text-black font-medium">{contact.name}</div>
+                <div className="text-gray-800">{contact.phone}</div>
+              </React.Fragment>
+            ))}
+          </div>
+          <div className='text-black mt-6'>
+            <b>Business manager:</b><br />
+            <span className='ml-8' />Maria Ðỗ Thị Thu Sương<br />
+            <span className='ml-8' />Email: thusuongdo22@gmail.com<br />
+            <b>Assistants: </b><br />
+            <span className='ml-8' />Francis Xavier Phillip Pham<br />
+            <span className='ml-8' />Theresa Caroline Pham<br />
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        
+        {/* Right column */}
+        <div className="bg-gray-50 p-6 rounded-lg shadow">
+          <h3 className="text-xl text-red-400 font-semibold mb-4">Ban Phục Vụ Cộng Đoàn:</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-y-2 sm:gap-x-8">
+            {[
+              { name: "Ban mục vụ: Anh Thuận", phone: "781-417-8540" },
+              { name: "Thư Ký: Phạm Danh", phone: "617-480-3318" },
+              { name: "Nội vụ: Giuse Trần Thiện", phone: "617-372-4177" },
+              { name: "Ban trang trí: Anh Đoàn ( Vân)", phone: "978-826-4737" },
+              { name: "Ngoại vụ: Agnes Cao Ngọc Ảnh", phone: "857-222-4219" },
+              { name: "Ca trưởng: Anna Nguyễn Thị Đan Hà", phone: "617-943-3557" },
+              { name: "Ban ẩm thực: Maria Jenifer Du (Trang)", phone: "617-368-0166" },
+              { name: "Ban Phụng Vụ: Giuse Đặng Văn Trí", phone: "617-838-4737" },
+              { name: "Công bố Lời Chúa : Phạm của Danh", phone: "617-480-3318" }
+            ].map((contact, index) => (
+              <React.Fragment key={index}>
+                <div className="text-black font-medium">{contact.name}</div>
+                <div className="text-gray-800">{contact.phone}</div>
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+      </div>
+    </main>
   );
 }
