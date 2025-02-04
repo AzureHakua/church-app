@@ -15,7 +15,7 @@ export default function Page() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-y-2 sm:gap-x-8">
             {[
-              { name: "Thứ Hai - Thứ Sáu:", time: "7:00 AM" },
+              { name: "Thứ Hai - Thứ Sáu:", time: "7:00 AM (Anh Ngữ)" },
               { name: "Thứ Bẩy:", time: "7:00 AM (Anh Ngữ)" },
               { name: "", time: "4:00 PM (Anh Ngữ)" },
               { name: "", time: "7:30 PM (Việt Ngữ)" },
