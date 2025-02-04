@@ -25,7 +25,6 @@ export default function YouTubeEmbed() {
         },
         allEnvVars: Object.keys(process.env).filter(key => key.startsWith('NEXT_PUBLIC_')),
         nodeEnv: process.env.NODE_ENV,
-        windowEnv: typeof window !== 'undefined' ? (window as any).ENV : undefined
       };
 
       console.log('Detailed Environment Check:', envCheck);
