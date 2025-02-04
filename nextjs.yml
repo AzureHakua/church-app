@@ -36,14 +36,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Debug Build Environment
-        run: |
-          echo "BUILD ENVIRONMENT CHECK"
-          echo "YouTube API Key exists: ${{ secrets.NEXT_PUBLIC_YOUTUBE_API_KEY != '' }}"
-          echo "YouTube API Key from env: ${NEXT_PUBLIC_YOUTUBE_API_KEY:+is set}"
-          echo "Admin Hash exists: ${{ secrets.NEXT_PUBLIC_ADMIN_PASSWORD_HASH != '' }}"
-          echo "Admin Hash from env: ${NEXT_PUBLIC_ADMIN_PASSWORD_HASH:+is set}"
-
       - name: Detect package manager
         id: detect-package-manager
         run: |
@@ -67,6 +59,14 @@ jobs:
         with:
           node-version: "20"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
+      - name: Debug After Node Setup
+        run: |
+          echo "===== Environment Debug ====="
+          echo "YouTube API Key exists: ${{ secrets.NEXT_PUBLIC_YOUTUBE_API_KEY != '' }}"
+          echo "YouTube API Key length: ${#NEXT_PUBLIC_YOUTUBE_API_KEY}"
+          echo "Admin Hash exists: ${{ secrets.NEXT_PUBLIC_ADMIN_PASSWORD_HASH != '' }}"
+          echo "Admin Hash length: ${#NEXT_PUBLIC_ADMIN_PASSWORD_HASH}"
+          echo "===== End Debug ====="
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
