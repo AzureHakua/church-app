@@ -2,25 +2,35 @@
 
 import { useEffect, useState } from 'react';
 
-const YOUTUBE_API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
-const CHANNEL_ID = 'UC0vf874o7o51DV2gHkZOq8A';
-const CACHE_KEY = 'youtube_latest_video';
-const CACHE_DURATION = 3600000; // 1 hour in milliseconds
-
 export default function LatestYoutubeVideo() {
   const [videoId, setVideoId] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    let isMounted = true; // To prevent state updates after unmount
+    let isMounted = true;
 
     async function fetchLatestVideo() {
+      // Debug logging at start of fetch
+      console.log('YouTube Component Environment:', {
+        hasApiKey: !!process.env.NEXT_PUBLIC_YOUTUBE_API_KEY,
+        apiKeyLength: process.env.NEXT_PUBLIC_YOUTUBE_API_KEY?.length ?? 0,
+        envVars: Object.keys(process.env).filter(key => key.startsWith('NEXT_PUBLIC_')),
+        timestamp: new Date().toISOString(),
+      });
+
       try {
-        // First check if we have a valid API key
+        const YOUTUBE_API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
+        const CHANNEL_ID = 'UC0vf874o7o51DV2gHkZOq8A';
+        const CACHE_KEY = 'youtube_latest_video';
+        const CACHE_DURATION = 3600000; // 1 hour in milliseconds
+
         if (!YOUTUBE_API_KEY) {
-          console.error('YouTube API key is not configured');
-          setIsLoading(false);
-          return;
+          console.error('API Key Missing:', {
+            timestamp: new Date().toISOString(),
+            envVars: Object.keys(process.env),
+          });
+          throw new Error('YouTube API key is not configured');
         }
 
         // Check cache
@@ -32,22 +42,24 @@ export default function LatestYoutubeVideo() {
               if (isMounted) {
                 setVideoId(videoId);
                 setIsLoading(false);
+                setError(null);
               }
               return;
             }
           }
         } catch (cacheError) {
           console.error('Cache error:', cacheError);
-          localStorage.removeItem(CACHE_KEY); // Clear invalid cache
+          localStorage.removeItem(CACHE_KEY);
         }
 
         // Fetch new data
         const response = await fetch(
           `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=1`
         );
-        
+
         if (!response.ok) {
-          throw new Error(`YouTube API error: ${response.status}`);
+          const errorData = await response.json().catch(() => ({}));
+          throw new Error(`YouTube API error: ${response.status} - ${JSON.stringify(errorData)}`);
         }
 
         const data = await response.json();
@@ -68,12 +80,19 @@ export default function LatestYoutubeVideo() {
           console.error('Failed to cache video ID:', cacheError);
         }
 
-        // Update state only if component is still mounted
         if (isMounted) {
           setVideoId(newVideoId);
+          setError(null);
         }
       } catch (error) {
-        console.error('Error fetching YouTube video:', error);
+        console.error('Error Debug:', {
+          error: error instanceof Error ? error.message : 'Unknown error',
+          timestamp: new Date().toISOString(),
+          type: error instanceof Error ? error.constructor.name : typeof error,
+        });
+        if (isMounted) {
+          setError(error instanceof Error ? error.message : 'Failed to load video');
+        }
       } finally {
         if (isMounted) {
           setIsLoading(false);
@@ -81,26 +100,18 @@ export default function LatestYoutubeVideo() {
       }
     }
 
-    // Initial fetch
     fetchLatestVideo();
-
-    // Set up interval for periodic checks
-    const intervalId = setInterval(fetchLatestVideo, CACHE_DURATION);
-
-    // Cleanup function
+    const interval = setInterval(fetchLatestVideo, 3600000);
+    
     return () => {
       isMounted = false;
-      clearInterval(intervalId);
+      clearInterval(interval);
     };
-  }, []); // Empty dependency array since we don't have any dependencies
+  }, []);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!videoId) {
-    return <div>No video available</div>;
-  }
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+  if (!videoId) return <div>No video available</div>;
 
   return (
     <div>
@@ -109,7 +120,7 @@ export default function LatestYoutubeVideo() {
         height="315"
         src={`https://www.youtube-nocookie.com/embed/${videoId}?modestbranding=1`}
         title="Latest YouTube Video"
-        className="border-0"  // Tailwind class for no border
+        className="border-0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       />
