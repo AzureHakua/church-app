@@ -11,23 +11,29 @@ export default function YouTubeEmbed() {
     let isMounted = true;
 
     async function fetchLatestVideo() {
-      // Compare both environment variables
-      console.log('Environment Variables Status:', {
+      // More detailed environment check
+      const envCheck = {
         youtube: {
           exists: !!process.env.NEXT_PUBLIC_YOUTUBE_API_KEY,
-          value: process.env.NEXT_PUBLIC_YOUTUBE_API_KEY?.substring(0, 3) + '...',  // Only log first 3 chars for security
-          type: typeof process.env.NEXT_PUBLIC_YOUTUBE_API_KEY
+          value: process.env.NEXT_PUBLIC_YOUTUBE_API_KEY?.substring(0, 3) + '...',
+          type: typeof process.env.NEXT_PUBLIC_YOUTUBE_API_KEY,
+          rawValue: process.env.NEXT_PUBLIC_YOUTUBE_API_KEY
         },
         adminHash: {
           exists: !!process.env.NEXT_PUBLIC_ADMIN_PASSWORD_HASH,
-          value: process.env.NEXT_PUBLIC_ADMIN_PASSWORD_HASH ? 'exists' : 'missing',
           type: typeof process.env.NEXT_PUBLIC_ADMIN_PASSWORD_HASH
         },
-        allEnvVars: Object.keys(process.env).filter(key => key.startsWith('NEXT_PUBLIC_'))
-      });
+        allEnvVars: Object.keys(process.env).filter(key => key.startsWith('NEXT_PUBLIC_')),
+        nodeEnv: process.env.NODE_ENV,
+        windowEnv: typeof window !== 'undefined' ? (window as any).ENV : undefined
+      };
+
+      console.log('Detailed Environment Check:', envCheck);
 
       if (!process.env.NEXT_PUBLIC_YOUTUBE_API_KEY) {
-        setError('YouTube API key is not configured');
+        console.warn('YouTube API key missing. Available env vars:',
+          Object.keys(process.env).filter(k => k.startsWith('NEXT')));
+        setError('API configuration error');
         setIsLoading(false);
         return;
       }
@@ -90,7 +96,6 @@ export default function YouTubeEmbed() {
         }
       }
     }
-
     fetchLatestVideo();
 
     // Cleanup function
