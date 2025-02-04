@@ -5,8 +5,9 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  // We want to disable these during builds even with eslint config
-  // since we're deploying to GitHub Pages
+  env: {
+    NEXT_PUBLIC_YOUTUBE_API_KEY: process.env.NEXT_PUBLIC_YOUTUBE_API_KEY,
+  },
   eslint: {
     ignoreDuringBuilds: true,
   },
