@@ -71,13 +71,18 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-      - name: Verify Environment Variables
+      - name: Debug Secrets
         run: |
-          echo "YouTube API Key exists: ${{ env.NEXT_PUBLIC_YOUTUBE_API_KEY != '' }}"
-          echo "Admin Hash exists: ${{ env.NEXT_PUBLIC_ADMIN_PASSWORD_HASH != '' }}"
-          # Print length of each (safely)
-          echo "YouTube API Key length: ${#NEXT_PUBLIC_YOUTUBE_API_KEY}"
-          echo "Admin Hash length: ${#NEXT_PUBLIC_ADMIN_PASSWORD_HASH}"
+          if [ -n "$NEXT_PUBLIC_YOUTUBE_API_KEY" ]; then
+            echo "YouTube API key is set and has length: ${#NEXT_PUBLIC_YOUTUBE_API_KEY}"
+          else
+            echo "YouTube API key is NOT set"
+          fi
+          if [ -n "$NEXT_PUBLIC_ADMIN_PASSWORD_HASH" ]; then
+            echo "Admin hash is set and has length: ${#NEXT_PUBLIC_ADMIN_PASSWORD_HASH}"
+          else
+            echo "Admin hash is NOT set"
+          fi
       - name: Build with Next.js
         env:
           NEXT_PUBLIC_ADMIN_PASSWORD_HASH: ${{ secrets.NEXT_PUBLIC_ADMIN_PASSWORD_HASH }}

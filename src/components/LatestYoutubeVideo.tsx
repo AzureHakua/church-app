@@ -11,23 +11,24 @@ export default function YouTubeEmbed() {
     let isMounted = true;
 
     async function fetchLatestVideo() {
-      // More detailed environment check
-      const envCheck = {
-        youtube: {
-          exists: !!process.env.NEXT_PUBLIC_YOUTUBE_API_KEY,
-          value: process.env.NEXT_PUBLIC_YOUTUBE_API_KEY?.substring(0, 3) + '...',
-          type: typeof process.env.NEXT_PUBLIC_YOUTUBE_API_KEY,
-          rawValue: process.env.NEXT_PUBLIC_YOUTUBE_API_KEY
-        },
-        adminHash: {
-          exists: !!process.env.NEXT_PUBLIC_ADMIN_PASSWORD_HASH,
-          type: typeof process.env.NEXT_PUBLIC_ADMIN_PASSWORD_HASH
-        },
-        allEnvVars: Object.keys(process.env).filter(key => key.startsWith('NEXT_PUBLIC_')),
-        nodeEnv: process.env.NODE_ENV,
-      };
-
-      console.log('Detailed Environment Check:', envCheck);
+      // Try different ways of accessing the env var
+    const envCheck = {
+      youtube: {
+        direct: process.env.NEXT_PUBLIC_YOUTUBE_API_KEY,
+        window: typeof window !== 'undefined' ? (window as any).env?.NEXT_PUBLIC_YOUTUBE_API_KEY : undefined,
+        exists: !!process.env.NEXT_PUBLIC_YOUTUBE_API_KEY,
+        value: process.env.NEXT_PUBLIC_YOUTUBE_API_KEY?.substring(0, 3) + '...',
+        type: typeof process.env.NEXT_PUBLIC_YOUTUBE_API_KEY,
+      },
+      adminHash: {
+        exists: !!process.env.NEXT_PUBLIC_ADMIN_PASSWORD_HASH,
+        type: typeof process.env.NEXT_PUBLIC_ADMIN_PASSWORD_HASH
+      },
+      allEnvVars: Object.keys(process.env).filter(key => key.startsWith('NEXT_PUBLIC_')),
+      nodeEnv: process.env.NODE_ENV
+    };
+    
+    console.log('Detailed Environment Check:', envCheck);
 
       if (!process.env.NEXT_PUBLIC_YOUTUBE_API_KEY) {
         console.warn('YouTube API key missing. Available env vars:',
