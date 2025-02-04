@@ -8,9 +8,16 @@ const YouTubeEmbed = () => {
 
   useEffect(() => {
     const fetchLatestVideo = async () => {
-      const response = await fetch('/api/youtube');
-      const data = await response.json();
-      setVideoId(data.videoId);
+      try {
+        const CHANNEL_ID = 'UC0vf874o7o51DV2gHkZOq8A';
+        const response = await fetch(
+          `https://www.googleapis.com/youtube/v3/search?key=${process.env.NEXT_PUBLIC_YOUTUBE_API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=1`
+        );
+        const data = await response.json();
+        setVideoId(data.items[0].id.videoId);
+      } catch (error) {
+        console.error('Error fetching YouTube video:', error);
+      }
     };
 
     fetchLatestVideo();
@@ -18,6 +25,8 @@ const YouTubeEmbed = () => {
     const interval = setInterval(fetchLatestVideo, 3600000);
     return () => clearInterval(interval);
   }, []);
+
+  if (!videoId) return <div>Loading...</div>;
 
   return (
     <div className="w-full h-full aspect-w-16 aspect-h-9">

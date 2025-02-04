@@ -76,7 +76,7 @@ jobs:
       - name: Build with Next.js
         env:
           NEXT_PUBLIC_ADMIN_PASSWORD_HASH: ${{ secrets.NEXT_PUBLIC_ADMIN_PASSWORD_HASH }}
-          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          YOUTUBE_API_KEY: ${{ secrets.NEXT_PUBLIC_YOUTUBE_API_KEY }}
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
