@@ -3,7 +3,7 @@ import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { useAuthStore } from '@/store/auth';
 
-const PDFViewer = dynamic(() => import('@/components/PFDViewer'), {
+const PDFViewer = dynamic(() => import('@/components/PDFViewer'), {
   ssr: false,
   loading: () => (
     <div className="w-full h-96 flex items-center justify-center">
@@ -70,10 +70,11 @@ export default function BulletinPage() {
     <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
       <input
         type="file"
+        id="bulletin-upload"
+        name="bulletin-upload"
         accept=".pdf"
         onChange={handleFileUpload}
         className="hidden"
-        id="bulletin-upload"
         disabled={uploading}
       />
       <label
@@ -104,6 +105,8 @@ export default function BulletinPage() {
           <form onSubmit={handleLogin} className="max-w-sm">
             <input
               type="password"
+              id="admin-password"
+              name="admin-password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter admin password"

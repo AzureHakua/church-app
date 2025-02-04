@@ -1,5 +1,5 @@
 "use client"
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Document, Page } from 'react-pdf';
 import { pdfjs } from 'react-pdf';
 import 'react-pdf/dist/Page/TextLayer.css';
@@ -13,6 +13,17 @@ export default function PDFViewer() {
   const [pageNumber, setPageNumber] = useState<number>(1);
   const [error, setError] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const [width, setWidth] = useState(900);
+
+  useEffect(() => {
+    const updateWidth = () => {
+      setWidth(Math.min(window.innerWidth - 32, 900));
+    };
+    
+    updateWidth();
+    window.addEventListener('resize', updateWidth);
+    return () => window.removeEventListener('resize', updateWidth);
+  }, []);
 
   function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
     setError(null);
@@ -59,7 +70,7 @@ export default function PDFViewer() {
             <Page
               pageNumber={pageNumber}
               renderTextLayer={false}
-              width={Math.min(window.innerWidth - 32, 900)}
+              width={width}
             />
           </Document>
         )}
