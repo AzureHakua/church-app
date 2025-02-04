@@ -5,12 +5,12 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  // We want to disable these during builds even with eslint config
+  // since we're deploying to GitHub Pages
   eslint: {
-    // Disable ESLint during builds
     ignoreDuringBuilds: true,
   },
   typescript: {
-    // Disable TypeScript checks during builds (for the NodeJS/ProcessEnv warnings)
     ignoreBuildErrors: true,
   }
 }
