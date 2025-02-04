@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-export default function LatestYoutubeVideo() {
+export default function YouTubeEmbed() {
   const [videoId, setVideoId] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -11,10 +11,11 @@ export default function LatestYoutubeVideo() {
     let isMounted = true;
 
     async function fetchLatestVideo() {
-      // Debug logging
-      console.log('Environment check:', {
-        hasKey: !!process.env.NEXT_PUBLIC_YOUTUBE_API_KEY,
-        envVars: Object.keys(process.env).filter(key => key.startsWith('NEXT_PUBLIC_')),
+      // Debug logging for development
+      console.log('YouTube API Key status:', {
+        exists: !!process.env.NEXT_PUBLIC_YOUTUBE_API_KEY,
+        keyLength: process.env.NEXT_PUBLIC_YOUTUBE_API_KEY?.length,
+        envVars: Object.keys(process.env).filter(key => key.startsWith('NEXT_PUBLIC_'))
       });
 
       if (!process.env.NEXT_PUBLIC_YOUTUBE_API_KEY) {
@@ -26,7 +27,7 @@ export default function LatestYoutubeVideo() {
       try {
         const CHANNEL_ID = 'UC0vf874o7o51DV2gHkZOq8A';
         const CACHE_KEY = 'youtube_latest_video';
-        const CACHE_DURATION = 3600000;
+        const CACHE_DURATION = 3600000; // 1 hour
 
         // Check cache
         const cached = localStorage.getItem(CACHE_KEY);
@@ -48,16 +49,22 @@ export default function LatestYoutubeVideo() {
         );
 
         if (!response.ok) {
-          throw new Error(`API error: ${response.status}`);
+          throw new Error(`YouTube API error: ${response.status}`);
         }
 
         const data = await response.json();
-        const newVideoId = data.items?.[0]?.id?.videoId;
         
-        if (!newVideoId) {
-          throw new Error('No video found');
+        // Check if data.items exists and has content
+        if (!data.items || data.items.length === 0) {
+          throw new Error('No videos found for this channel');
         }
 
+        const newVideoId = data.items[0]?.id?.videoId;
+        if (!newVideoId) {
+          throw new Error('Invalid video data received');
+        }
+
+        // Save to cache
         localStorage.setItem(CACHE_KEY, JSON.stringify({
           videoId: newVideoId,
           timestamp: Date.now()
@@ -67,7 +74,7 @@ export default function LatestYoutubeVideo() {
           setVideoId(newVideoId);
         }
       } catch (err) {
-        console.error('Fetch error:', err);
+        console.error('YouTube fetch error:', err);
         setError(err instanceof Error ? err.message : 'Failed to load video');
       } finally {
         if (isMounted) {
@@ -77,21 +84,37 @@ export default function LatestYoutubeVideo() {
     }
 
     fetchLatestVideo();
+
+    // Cleanup function
     return () => {
       isMounted = false;
     };
   }, []);
 
-  if (isLoading) return <div className="text-center p-4">Loading...</div>;
-  if (error) return <div className="text-center p-4 text-red-500">Error: {error}</div>;
-  if (!videoId) return <div className="text-center p-4">No video available</div>;
+  if (isLoading) return (
+    <div className="w-full h-full flex items-center justify-center">
+      <div className="text-center p-4">Loading...</div>
+    </div>
+  );
+
+  if (error) return (
+    <div className="w-full h-full flex items-center justify-center">
+      <div className="text-center p-4 text-red-500">Error: {error}</div>
+    </div>
+  );
+
+  if (!videoId) return (
+    <div className="w-full h-full flex items-center justify-center">
+      <div className="text-center p-4">No video available</div>
+    </div>
+  );
 
   return (
-    <div className="aspect-w-16 aspect-h-9">
+    <div className="w-full h-full aspect-w-16 aspect-h-9">
       <iframe
         src={`https://www.youtube-nocookie.com/embed/${videoId}?modestbranding=1`}
         title="Latest YouTube Video"
-        className="w-full h-full rounded-lg border-0"
+        className="w-full h-full rounded-lg"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       />
