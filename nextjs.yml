@@ -53,6 +53,14 @@ jobs:
         with:
           node-version: "20"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
+      - name: Debug Environment
+        run: |
+          echo "=== Environment Variables Check ==="
+          echo "YouTube API Key exists: ${{ secrets.NEXT_PUBLIC_YOUTUBE_API_KEY != '' }}"
+          echo "Admin Hash exists: ${{ secrets.NEXT_PUBLIC_ADMIN_PASSWORD_HASH != '' }}"
+          echo "=== Current Environment Variables ==="
+          env | grep NEXT_PUBLIC || echo "No NEXT_PUBLIC variables found"
+          echo "=== End Environment Check ==="
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
@@ -73,12 +81,6 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-      - name: Debug Environment
-        run: |
-          echo "Checking for environment variables:"
-          echo "Has YouTube API Key: ${{ secrets.NEXT_PUBLIC_YOUTUBE_API_KEY != '' }}"
-          echo "Environment variables:"
-          env | grep NEXT_PUBLIC || echo "No NEXT_PUBLIC variables found"
       - name: Build with Next.js
         env:
           NEXT_PUBLIC_ADMIN_PASSWORD_HASH: ${{ secrets.NEXT_PUBLIC_ADMIN_PASSWORD_HASH }}
