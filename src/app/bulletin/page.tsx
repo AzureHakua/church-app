@@ -27,16 +27,18 @@ export default function BulletinPage() {
 
   return (
     <main className="max-w-4xl mx-auto px-4 py-6">
-      <div className="bg-gray-50 p-6 mb-6 rounded-lg shadow">
-        <h1 className="text-3xl text-center font-bold">Monthly Bulletin</h1>
+      <div className="bg-gray-50 p-2 sm:p-6 mb-6 rounded-lg">
+        <h1 className="text-lg sm:text-3xl text-center font-bold">Monthly Bulletin</h1>
       </div>
       
       {/* PDF Viewer */}
-      <PDFViewer />
+      <div className="relative">
+        <PDFViewer />
+      </div>
 
       {/* Admin Section */}
-      <div className="mt-12 p-6 bg-gray-50 rounded-lg">
-        <h2 className="text-xl font-semibold mb-4">Admin Section</h2>
+      <div className="mt-12 p-4 sm:p-6 bg-gray-50 rounded-lg">
+        <h2 className="text-lg sm:text-xl font-semibold mb-4">Admin Section</h2>
         
         {!isAuthenticated ? (
           <form onSubmit={handleLogin} className="max-w-sm">

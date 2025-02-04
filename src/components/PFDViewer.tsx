@@ -56,7 +56,7 @@ export default function PDFViewer() {
               </div>
             }
           >
-             <Page
+            <Page
               pageNumber={pageNumber}
               renderTextLayer={false}
               width={Math.min(window.innerWidth - 32, 900)}
@@ -68,16 +68,16 @@ export default function PDFViewer() {
       {numPages && (
         <div className="sticky bottom-0 mt-4 flex gap-2 sm:gap-4 items-center bg-white p-2 sm:p-4 shadow-lg w-full">
           <div className="flex gap-2 sm:gap-4 items-center justify-center w-full max-w-3xl mx-auto">
-          <button
+            <button
               onClick={(e) => handlePageChange(e, pageNumber - 1)}
               disabled={pageNumber <= 1}
               className="px-2 sm:px-4 py-2 bg-gray-200 rounded disabled:opacity-50"
             >
               Previous
             </button>
-            
+
             <p>Page {pageNumber} of {numPages}</p>
-            
+
             <button
               onClick={(e) => handlePageChange(e, pageNumber + 1)}
               disabled={pageNumber >= (numPages || 1)}
@@ -86,7 +86,7 @@ export default function PDFViewer() {
               Next
             </button>
 
-            <a 
+            <a
               href="/bulletins/current-bulletin.pdf"
               download="current-bulletin.pdf"
               target="_blank"
