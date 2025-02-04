@@ -73,6 +73,12 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      - name: Debug Environment
+        run: |
+          echo "Checking for environment variables:"
+          echo "Has YouTube API Key: ${{ secrets.NEXT_PUBLIC_YOUTUBE_API_KEY != '' }}"
+          echo "Environment variables:"
+          env | grep NEXT_PUBLIC || echo "No NEXT_PUBLIC variables found"
       - name: Build with Next.js
         env:
           NEXT_PUBLIC_ADMIN_PASSWORD_HASH: ${{ secrets.NEXT_PUBLIC_ADMIN_PASSWORD_HASH }}

@@ -1,9 +1,9 @@
 import type { NextConfig } from 'next'
 
-console.log('Next.js Build Environment:', {
+// Add build-time logging
+console.log('Build-time environment check:', {
   hasYoutubeKey: !!process.env.NEXT_PUBLIC_YOUTUBE_API_KEY,
-  hasAdminHash: !!process.env.NEXT_PUBLIC_ADMIN_PASSWORD_HASH,
-  publicVars: Object.keys(process.env).filter(key => key.startsWith('NEXT_PUBLIC_')),
+  keyLength: process.env.NEXT_PUBLIC_YOUTUBE_API_KEY?.length,
 });
 
 const nextConfig: NextConfig = {
@@ -12,8 +12,7 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   env: {
-    NEXT_PUBLIC_YOUTUBE_API_KEY: process.env.NEXT_PUBLIC_YOUTUBE_API_KEY,
-    NEXT_PUBLIC_ADMIN_PASSWORD_HASH: process.env.NEXT_PUBLIC_ADMIN_PASSWORD_HASH,
+    NEXT_PUBLIC_YOUTUBE_API_KEY: process.env.NEXT_PUBLIC_YOUTUBE_API_KEY
   },
   eslint: {
     ignoreDuringBuilds: true,
