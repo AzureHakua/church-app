@@ -22,7 +22,7 @@ export default function Banner() {
         <div className="flex flex-col justify-center items-center h-full text-center">
           <h1 className="text-2x1 sm:text-4xl font-bold text-red-500">CỘNG ĐOÀN THÁNH GIUSE</h1>
           <p className="mt-2 text-sm sm:text-xl text-white">
-            Thánh Lễ Việt Nam hằng tuần 7:30 pm tại giáo đường: <br />
+            Thánh Lễ Việt Nam hằng tuần 7:30 pm tại Giáo Đường: <br />
             IMMACULATE CONCEPTION <br />
             Basement Chapel <br />
             489 BROADWAY <br />
