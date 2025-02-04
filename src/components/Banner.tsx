@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function Banner() {
   return (
-    <div className="relative h-60">
+    <div className="relative h-40 sm:h-60">
       {/* Background Image */}
       <div className="absolute inset-0 w-full h-full">
         <Image
@@ -20,8 +20,8 @@ export default function Banner() {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 h-full">
         <div className="flex flex-col justify-center items-center h-full text-center">
-          <h1 className="text-4xl font-bold text-red-500">CỘNG ĐOÀN THÁNH GIUSE</h1>
-          <p className="mt-2 text-xl text-white">
+          <h1 className="text-2x1 sm:text-4xl font-bold text-red-500">CỘNG ĐOÀN THÁNH GIUSE</h1>
+          <p className="mt-2 text-sm sm:text-xl text-white">
             Thánh Lễ Việt Nam hằng tuần 7:30 pm tại giáo đường: <br />
             IMMACULATE CONCEPTION <br />
             Basement Chapel <br />
