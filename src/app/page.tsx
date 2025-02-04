@@ -5,32 +5,18 @@ export default function Home() {
     <main className="max-w-7xl mx-auto px-4 py-6">
       {/* Large text field */}
       <div className="bg-gray-50 p-6 mb-6 rounded-lg shadow">
-        <h2 className="text-2xl text-red-400 font-semibold mb-4">Sứ mệnh của Cộng đoàn:</h2>
-        <p className='text-black'>Chúng tôi là một Cộng đoàn với nền tảng gia đình Công Giáo La-Mã.
-          Chúng tôi nhấn mạnh việc tái truyền giáo cho các giáo dân Việt Nam vùng Northshore của
-          Tổng Giáo Phận Boston, và giúp các anh chị em Tân Tòng trở lại đạo, cũng như giúp các bạn
-          trẻ Công Giáo Việt Nam bận rộn công việc để nuôi sống gia đình có được thời gian phù hợp,
-          để tham dự Thánh Lễ hằng tuần vào tối Thứ Bảy lúc 7:30pm.<br />
-          Tạ ơn Thiên Chúa chúc phúc. Hàng tuần chúng tôi hân hoan đón tiếp một số gương mặt
-          trẻ mới, và lâu lâu lại có một vài anh chị em Tân Tòng xin trở lại đạo. Theo đà phát triển
-          như thế. Chúng tôi ôm ấp hy vọng trong tương lai, cộng đoàn chúng tôi sẽ trở thành Giáo
-          xứ Việt Nam thứ hai vùng Northshore của Tổng Giáo Phận Boston, sau Giáo xứ tiên khởi
-          Chân Phước Andre Phú Yên.<br />
-          Hàng tuần trong Thánh Lễ, chúng tôi cùng nhau cầu nguyện cho Giáo Hội, cho đất nước
-          Hoa Kỳ, cho các nước trên thế giới và quê hương yêu dấu Việt Nam, cho tương lai của
-          Cộng đoàn chúng tôi, và cho các Giáo xứ bạn được ơn đoàn kết yêu thương và cùng nhau
-          phát triển một Giáo Hội chung.<br />
-          Nguyện xin Chúa Thánh Thần ban ơn trợ giúp toàn thể anh chị em Công Giáo Việt Nam
-          vùng Boston. Xin Cha trên Trời luôn ban ơn đoàn kết và yêu thương nhau cho con dân
-          Công Giáo Việt Nam để các cộng đoàn, giáo xứ Việt Nam được phát triển lành mạnh trong
-          Ân Sủng của Chúa Giêsu Kitô. Amen. </p>
+        <h2 className="text-2xl text-red-500 font-semibold mb-4">Sứ mệnh của Cộng đoàn:</h2>
+        <p className='text-black'>Chúng tôi là một Cộng đoàn với nền tảng gia đình Công Giáo La-Mã. Chúng tôi nhấn mạnh việc tái truyền giáo cho các giáo dân Việt Nam vùng Northshore của Tổng Giáo Phận Boston, và giúp các anh chị em Tân Tòng trở lại đạo, cũng như giúp các bạn trẻ Công Giáo Việt Nam bận rộn công việc chăm lo cuộc sống gia đình có được thời gian phù hợp, để tham dự Thánh Lễ hằng tuần vào tối Thứ Bảy lúc 7:30pm.<br />
+        Tạ ơn Thiên Chúa chúc phúc. Hàng tuần chúng tôi hân hoan đón tiếp một số gương mặt trẻ mới, và lâu lâu lại có một vài anh chị em Tân Tòng xin trở lại đạo. Theo đà phát triển như thế. Chúng tôi ôm ấp hy vọng trong tương lai, cộng đoàn chúng tôi sẽ trở thành Giáo xứ Việt Nam thứ hai vùng Northshore của Tổng Giáo Phận Boston, sau Giáo xứ tiên khởi Chân Phước Andre Phú Yên.<br />
+        Hàng tuần trong Thánh Lễ, chúng tôi cùng nhau cầu nguyện cho Giáo Hội, cho đất nước Hoa Kỳ, cho các nước trên thế giới và quê hương yêu dấu Việt Nam, cho tương lai của Cộng đoàn chúng tôi, và cho các Giáo xứ bạn được ơn đoàn kết yêu thương và cùng nhau phát triển một Giáo Hội chung.<br />
+        Nguyện xin Chúa Thánh Thần ban ơn trợ giúp toàn thể anh chị em Công Giáo Việt Nam vùng Boston.  Xin Cha trên Trời luôn ban ơn đoàn kết và yêu thương nhau cho con dân Công Giáo Việt Nam để các cộng đoàn, giáo xứ Việt Nam được phát triển lành mạnh trong Ân Sủng của Chúa Giêsu Kitô. Xin Thánh cả Giuse luôn che chở, dìu dắt, và cầu bầu cho cộng đoàn chúng con. Amen.</p>
       </div>
       
       {/* Two column layout, stacks on mobile */}
       <div className="flex flex-col md:grid md:grid-cols-2 gap-6">
         {/* Left column */}
         <div className="bg-gray-50 p-6 rounded-lg shadow">
-          <h3 className="text-xl text-red-400 font-semibold mb-4">Các Linh mục Việt Nam giúp mục vụ:</h3>
+          <h3 className="text-xl text-red-500 font-semibold mb-4">Các Linh mục Việt Nam giúp mục vụ:</h3>
           <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-y-2 sm:gap-x-8">
             {[
               { name: "Cha Thomas Nguyễn Hoàng Duy", phone: "781-869-0644" },
@@ -57,7 +43,7 @@ export default function Home() {
         
         {/* Right column */}
         <div className="bg-gray-50 p-6 rounded-lg shadow">
-          <h3 className="text-xl text-red-400 font-semibold mb-4">Ban Phục Vụ Cộng Đoàn:</h3>
+          <h3 className="text-xl text-red-500 font-semibold mb-4">Ban Phục Vụ Cộng Đoàn:</h3>
           <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-y-2 sm:gap-x-8">
             {[
               { name: "Ban mục vụ: Giuse Nguyễn Thuận", phone: "781-417-8540" },

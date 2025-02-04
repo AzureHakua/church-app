@@ -26,8 +26,10 @@ export default function BulletinPage() {
   };
 
   return (
-    <main className="max-w-7xl mx-auto px-4 py-6">
-      <h1 className="text-3xl text-center font-bold mb-6">Monthly Bulletin</h1>
+    <main className="max-w-4xl mx-auto px-4 py-6">
+      <div className="bg-gray-50 p-6 mb-6 rounded-lg shadow">
+        <h1 className="text-3xl text-center font-bold">Monthly Bulletin</h1>
+      </div>
       
       {/* PDF Viewer */}
       <PDFViewer />
