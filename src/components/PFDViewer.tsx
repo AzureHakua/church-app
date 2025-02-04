@@ -46,7 +46,7 @@ export default function PDFViewer() {
           </div>
         ) : (
           <Document
-            file="/bulletins/current-bulletin.pdf"
+            file={"https://pub-9170ad6cfbe4416e9e9387cf6fd3f1b9.r2.dev/current-bulletin.pdf"}
             onLoadSuccess={onDocumentLoadSuccess}
             onLoadError={onDocumentLoadError}
             className="flex justify-center"
