@@ -20,10 +20,10 @@ export default function Home() {
           </div>
           <div className="p-6">
             <h2 className="text-2xl font-semibold text-black mb-4">
-              1. NGƯỜI “CÔNG CHÍNH”
+              1. NGƯỜI 'CÔNG CHÍNH'
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              Đối với người Do Thái, thành ngữ "người công chính" ít nhiều tương đương với việc gọi ai đó là thánh. Thánh sử Matthêu dùng nó để mô tả Thánh cả Giuse (Mt 1,19). Ngài là một người luôn tìm kiếm để thấu hiểu và sẵn sàng thực thi Thánh ý Thiên Chúa, thậm chí phải trả giá bằng sự đau khổ và hy sinh. Chẳng hạn, chúng ta thấy Người luôn tuân giữ Luật Môsê trong Lễ Tiến Dâng Chúa Hài Đồng tại Đền thờ (Lc 2: 22,27,39). Ngài cũng vâng lời với cách đáp trả bốn thị kiến trong những giấc mơ mà Ngài đã được mặc khải (x. Mt 1,20; 2: 13,19,22).
+              Đối với người Do Thái, thành ngữ 'người công chính' ít nhiều tương đương với việc gọi ai đó là thánh. Thánh sử Matthêu dùng nó để mô tả Thánh cả Giuse (Mt 1,19). Ngài là một người luôn tìm kiếm để thấu hiểu và sẵn sàng thực thi Thánh ý Thiên Chúa, thậm chí phải trả giá bằng sự đau khổ và hy sinh. Chẳng hạn, chúng ta thấy Người luôn tuân giữ Luật Môsê trong Lễ Tiến Dâng Chúa Hài Đồng tại Đền thờ (Lc 2: 22,27,39). Ngài cũng vâng lời với cách đáp trả bốn thị kiến trong những giấc mơ mà Ngài đã được mặc khải (x. Mt 1,20; 2: 13,19,22).
             </p>
           </div>
         </article>
@@ -61,7 +61,7 @@ export default function Home() {
                3. BÌNH DỊ
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              Khi trở về từ Ai Cập, Thánh Giuse không hoàn toàn tin vào những gì vua Hêrôđê con có thể làm với Hài Nhi Giêsu. Vì thế, Ngài chọn một cuộc sống bình dị và không gây chú ý tại Nazareth - một ngôi làng nhỏ. Đối với người Do Thái, Galilê không phải là một nơi có thế giá: họ cho rằng “không một ngôn sứ nào xuất thân từ Galilê cả” (Ga 7:52). Và chính Nathanael đã hỏi Chúa Giêsu, "Từ Nazareth làm sao có cái gì hay được?" (Ga 1,46) Thánh Cả Giuse chọn cuộc sống bình dị để tập trung vào một điều quan trọng: đó là Đấng Mêsia có thể hoàn tất sứ mệnh cứu chuộc của Người.
+              Khi trở về từ Ai Cập, Thánh Giuse không hoàn toàn tin vào những gì vua Hêrôđê con có thể làm với Hài Nhi Giêsu. Vì thế, Ngài chọn một cuộc sống bình dị và không gây chú ý tại Nazareth - một ngôi làng nhỏ. Đối với người Do Thái, Galilê không phải là một nơi có thế giá: họ cho rằng 'không một ngôn sứ nào xuất thân từ Galilê cả' (Ga 7:52). Và chính Nathanael đã hỏi Chúa Giêsu, 'Từ Nazareth làm sao có cái gì hay được?' (Ga 1,46) Thánh Cả Giuse chọn cuộc sống bình dị để tập trung vào một điều quan trọng: đó là Đấng Mêsia có thể hoàn tất sứ mệnh cứu chuộc của Người.
             </p>
           </div>
         </article>
@@ -99,7 +99,7 @@ export default function Home() {
               5. KHIÊM NHƯỜNG
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              Thánh Cả Giuse chắc chắn đã cố gắng làm những gì có thể để chuẩn bị thật chu đáo cho sự giáng sinh của Hài nhi Giêsu, nhưng vì sự việc lại diễn ra tại Bêlem, nên thánh nhân phải chấp nhận rằng Đấng Messia đã phải sinh ra trong máng cỏ vì “không tìm được chỗ trong nhà trọ” (Lc. 2: 7). Ngài thích nghi và cố gắng làm những gì tốt nhất cho Con Thiên Chúa trong cảnh huống này.
+              Thánh Cả Giuse chắc chắn đã cố gắng làm những gì có thể để chuẩn bị thật chu đáo cho sự giáng sinh của Hài nhi Giêsu, nhưng vì sự việc lại diễn ra tại Bêlem, nên thánh nhân phải chấp nhận rằng Đấng Messia đã phải sinh ra trong máng cỏ vì 'không tìm được chỗ trong nhà trọ' (Lc. 2: 7). Ngài thích nghi và cố gắng làm những gì tốt nhất cho Con Thiên Chúa trong cảnh huống này.
             </p>
           </div>
         </article>
@@ -137,7 +137,7 @@ export default function Home() {
               7. CAN ĐẢM
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              Khi biết Đức Maria sẽ là Mẹ Thiên Chúa, Thánh Cả Giuse đã nhận lấy tư cách làm cha hợp pháp của Chúa Giêsu và làm theo lời sứ thần phán: “Ngươi phải đặt tên cho con trẻ là Giêsu vì chính người sẽ cứu dân người khỏi tội lỗi của họ (Mt 1:21).
+              Khi biết Đức Maria sẽ là Mẹ Thiên Chúa, Thánh Cả Giuse đã nhận lấy tư cách làm cha hợp pháp của Chúa Giêsu và làm theo lời sứ thần phán: Ngươi phải đặt tên cho con trẻ là Giêsu vì chính người sẽ cứu dân người khỏi tội lỗi của họ (Mt 1:21).
             </p>
           </div>
         </article>
@@ -156,7 +156,7 @@ export default function Home() {
               8. KHIẾT TỊNH
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              Thánh Giuse là người thuộc dòng dõi hoàng tộc trong dân Do Thái. Lẽ ra, ngài có thể có một cuộc hôn nhân đơm hoa kết trái và có những đứa con ruột. Nhưng Thiên Chúa có một dự định khác, và Thánh Giuse được chọn làm cha "nuôi" của Chúa Giê-su. Ngài sẽ giữ khiết tịnh, sẽ bảo vệ và cư xử với Đức Maria và Chúa Giêsu với lòng tôn trọng tuyệt đối. Và Thánh nhân sẽ hiến chính bản thân mình cho sứ mệnh này với tất cả trái tim của ngài. Đó là lý do tại sao Giáo hội đã đặt Thánh Giuse làm bổn mạng của các gia đình: bởi vì ngài biết không điều gì ngoài tình yêu đích thực nên ngự trị trong một gia đình.
+              Thánh Giuse là người thuộc dòng dõi hoàng tộc trong dân Do Thái. Lẽ ra, ngài có thể có một cuộc hôn nhân đơm hoa kết trái và có những đứa con ruột. Nhưng Thiên Chúa có một dự định khác, và Thánh Giuse được chọn làm cha 'nuôi' của Chúa Giê-su. Ngài sẽ giữ khiết tịnh, sẽ bảo vệ và cư xử với Đức Maria và Chúa Giêsu với lòng tôn trọng tuyệt đối. Và Thánh nhân sẽ hiến chính bản thân mình cho sứ mệnh này với tất cả trái tim của ngài. Đó là lý do tại sao Giáo hội đã đặt Thánh Giuse làm bổn mạng của các gia đình: bởi vì ngài biết không điều gì ngoài tình yêu đích thực nên ngự trị trong một gia đình.
             </p>
           </div>
         </article>
@@ -175,7 +175,7 @@ export default function Home() {
               9. THỰC HIỆN QUYỀN THẾ
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              Tin Mừng Thánh Luca cho chúng ta biết rằng, sau sự kiện tại Đền Thờ ở Giêrusalem (con trẻ bị thất lạc và cuối cùng được tìm thấy), Thánh Gia trở về nhà và Chúa Giêsu “sống cùng cha mẹ Người” (Lc 2:51). Thánh Giuse thi hành quyền thế trong khi biết rằng ngài đang trong vai trò làm cha của Đấng là Thiên Chúa của ngài. Và sau đó kết quả được trưng dẫn trong chính Tin Mừng: "Đức Giêsu ngày càng khôn lớn, và được Thiên Chúa cũng như mọi người thương mến." (Lc 2:52).
+              Tin Mừng Thánh Luca cho chúng ta biết rằng, sau sự kiện tại Đền Thờ ở Giêrusalem (con trẻ bị thất lạc và cuối cùng được tìm thấy), Thánh Gia trở về nhà và Chúa Giêsu 'sống cùng cha mẹ Người' (Lc 2:51). Thánh Giuse thi hành quyền thế trong khi biết rằng ngài đang trong vai trò làm cha của Đấng là Thiên Chúa của ngài. Và sau đó kết quả được trưng dẫn trong chính Tin Mừng: 'Đức Giêsu ngày càng khôn lớn, và được Thiên Chúa cũng như mọi người thương mến.' (Lc 2:52).
             </p>
           </div>
         </article>
