@@ -11,11 +11,19 @@ export default function YouTubeEmbed() {
     let isMounted = true;
 
     async function fetchLatestVideo() {
-      // Debug logging for development
-      console.log('YouTube API Key status:', {
-        exists: !!process.env.NEXT_PUBLIC_YOUTUBE_API_KEY,
-        keyLength: process.env.NEXT_PUBLIC_YOUTUBE_API_KEY?.length,
-        envVars: Object.keys(process.env).filter(key => key.startsWith('NEXT_PUBLIC_'))
+      // Compare both environment variables
+      console.log('Environment Variables Status:', {
+        youtube: {
+          exists: !!process.env.NEXT_PUBLIC_YOUTUBE_API_KEY,
+          value: process.env.NEXT_PUBLIC_YOUTUBE_API_KEY?.substring(0, 3) + '...',  // Only log first 3 chars for security
+          type: typeof process.env.NEXT_PUBLIC_YOUTUBE_API_KEY
+        },
+        adminHash: {
+          exists: !!process.env.NEXT_PUBLIC_ADMIN_PASSWORD_HASH,
+          value: process.env.NEXT_PUBLIC_ADMIN_PASSWORD_HASH ? 'exists' : 'missing',
+          type: typeof process.env.NEXT_PUBLIC_ADMIN_PASSWORD_HASH
+        },
+        allEnvVars: Object.keys(process.env).filter(key => key.startsWith('NEXT_PUBLIC_'))
       });
 
       if (!process.env.NEXT_PUBLIC_YOUTUBE_API_KEY) {
@@ -53,7 +61,7 @@ export default function YouTubeEmbed() {
         }
 
         const data = await response.json();
-        
+
         // Check if data.items exists and has content
         if (!data.items || data.items.length === 0) {
           throw new Error('No videos found for this channel');
