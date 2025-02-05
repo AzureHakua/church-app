@@ -10,9 +10,6 @@ export default function Page() {
         {/* Left column */}
         <div className="bg-gray-50 p-6 rounded-lg shadow">
           <h3 className="text-xl text-red-500 font-semibold">Thánh Lễ trong tuần:</h3>
-          <div className='text-black my-3'>
-            <b>CHA XỨ: JOSEPH MARWA, SMA</b><br />
-          </div>
           <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-y-2 sm:gap-x-8">
             {[
               { name: "Thứ Hai - Thứ Sáu:", time: "7:00 AM (Anh Ngữ)" },

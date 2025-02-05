@@ -14,6 +14,7 @@ export default function PDFViewer() {
   const [error, setError] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(900);
+  const timestamp = Date.now();
 
   useEffect(() => {
     const updateWidth = () => {
@@ -57,7 +58,7 @@ export default function PDFViewer() {
           </div>
         ) : (
           <Document
-            file={"https://pub-9170ad6cfbe4416e9e9387cf6fd3f1b9.r2.dev/current-bulletin.pdf"}
+            file={`https://pub-9170ad6cfbe4416e9e9387cf6fd3f1b9.r2.dev/current-bulletin.pdf?t=${timestamp}`}
             onLoadSuccess={onDocumentLoadSuccess}
             onLoadError={onDocumentLoadError}
             className="flex justify-center"
@@ -98,7 +99,7 @@ export default function PDFViewer() {
             </button>
 
             <a
-              href="/bulletins/current-bulletin.pdf"
+              href={`https://pub-9170ad6cfbe4416e9e9387cf6fd3f1b9.r2.dev/current-bulletin.pdf?t=${timestamp}`}
               download="current-bulletin.pdf"
               target="_blank"
               rel="noopener noreferrer"
