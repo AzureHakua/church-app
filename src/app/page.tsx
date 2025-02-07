@@ -47,10 +47,10 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-y-2 sm:gap-x-8">
             {[
               { name: "Ban mục vụ: Giuse Nguyễn Thuận", phone: "781-417-8540" },
-              { name: "Thư Ký: Martino Phạm Công Danh", phone: "617-480-3318" },
-              { name: "Nội vụ: Giuse Trần Thiện", phone: "617-372-4177" },
-              { name: "Ban trang trí: Giuse Phạm Văn Đoàn", phone: "978-826-4737" },
               { name: "Ngoại vụ: Agnes Cao Ngọc Ảnh", phone: "857-222-4219" },
+              { name: "Nội vụ: Giuse Trần Thiện", phone: "617-372-4177" },
+              { name: "Thư Ký: Martino Phạm Công Danh", phone: "617-480-3318" },
+              { name: "Ban trang trí: Giuse Phạm Văn Đoàn", phone: "978-826-4737" },
               { name: "Ca trưởng: Anna Nguyễn Thị Đan Hà", phone: "617-943-3557" },
               { name: "Ban ẩm thực: Maria Jenifer Trang Du", phone: "617-368-0166" },
               { name: "Ban Phụng Vụ: Giuse Đặng Văn Trí", phone: "617-838-4737" },
