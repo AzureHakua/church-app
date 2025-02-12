@@ -19,7 +19,6 @@ export default function Home() {
           <h3 className="text-xl text-red-500 font-semibold mb-4">Các Linh mục Việt Nam giúp mục vụ:</h3>
           <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-y-2 sm:gap-x-8">
             {[
-              { name: "Cha Thomas Nguyễn Hoàng Duy", phone: "781-869-0644" },
               { name: "Cha Giuse Đặng Cao Khiết", phone: "857-588-2171" },
               { name: "Cha Phêrô Trần Chỉnh, SJ", phone: "857-381-5163" },
               { name: "Cha Giuse Nguyễn Khang, SJ", phone: "617-276-5234" },
@@ -48,14 +47,14 @@ export default function Home() {
             {[
               { name: "Ban mục vụ: Giuse Nguyễn Thuận", phone: "781-417-8540" },
               { name: "Ngoại vụ: Agnes Cao Ngọc Ảnh", phone: "857-222-4219" },
-              { name: "Nội vụ: Giuse Trần Thiện", phone: "617-372-4177" },
-              { name: "Thư Ký: Martino Phạm Công Danh", phone: "617-480-3318" },
-              { name: "Ban Phụng Vụ: Giuse Đặng Văn Trí", phone: "617-838-4737" },
-              { name: "Công bố Lời Chúa: Martino Phạm Công Danh", phone: "617-480-3318" },
-              { name: "Ca trưởng: Anna Nguyễn Thị Đan Hà", phone: "617-943-3557" },
-              { name: "Ban trang trí: Giuse Phạm Văn Đoàn", phone: "978-826-4737" },
-              { name: "Ban ẩm thực: Maria Jenifer Trang Du", phone: "617-368-0166" },
-              { name: "Ban tài chánh: Maria Jenifer Trang Du", phone: "617-368-0166" }
+              { name: "Nội vụ: Giuse Trần Thiện", phone: "" },
+              { name: "Thư Ký: Martino Phạm Công Danh", phone: "" },
+              { name: "Ban Phụng Vụ: Giuse Đặng Văn Trí", phone: "" },
+              { name: "Công bố Lời Chúa: Martino Phạm Công Danh", phone: "" },
+              { name: "Ca trưởng: Anna Nguyễn Thị Đan Hà", phone: "" },
+              { name: "Ban trang trí: Giuse Phạm Văn Đoàn", phone: "" },
+              { name: "Ban ẩm thực: Maria Jenifer Trang Du", phone: "" },
+              { name: "Ban tài chánh: Maria Jenifer Trang Du", phone: "" }
             ].map((contact, index) => (
               <React.Fragment key={index}>
                 <div className="text-black font-medium">{contact.name}</div>
