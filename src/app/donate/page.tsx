@@ -14,8 +14,7 @@ export default function Page() {
 
       <div className="flex flex-col md:grid md:grid-cols-[1fr_2fr] gap-6 mb-6">
         <div className="bg-gray-50 p-4 rounded-lg shadow text-black flex flex-col justify-center h-full">
-          <p>Donations are used to support the church's mission and activities. Give what you can, every bit helps.</p>
-          <p className="mt-6">Feel free to donate one time or set up a recurring plan from as low as $5/week.</p>
+          <p>Tất cả đóng góp cho Saint Joseph Vietnamese Parish sẽ được sử dụng cho nhà thờ tương lai, bác ái, hỗ trợ các cha và xây dựng cộng đoàn.</p>
         </div>
 
         <div className='text-center'>
