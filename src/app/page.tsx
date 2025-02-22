@@ -20,7 +20,6 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-y-2 sm:gap-x-8">
             {[
               { name: "Cha Giuse Đặng Cao Khiết", phone: "857-588-2171" },
-              { name: "Cha Phêrô Trần Chỉnh, SJ", phone: "857-381-5163" },
               { name: "Cha Giuse Nguyễn Khang, SJ", phone: "617-276-5234" },
               { name: "Cha cố Giuse Nguyễn Văn Điểm", phone: "617-276-5234" }
             ].map((contact, index) => (
@@ -45,7 +44,6 @@ export default function Home() {
           <h3 className="text-xl text-red-500 font-semibold mb-4">Ban Phục Vụ Cộng Đoàn:</h3>
           <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-y-2 sm:gap-x-8">
             {[
-              { name: "Ban mục vụ: Giuse Nguyễn Thuận", phone: "" },
               { name: "Ngoại vụ: Agnes Cao Ngọc Ảnh", phone: "857-222-4219" },
               { name: "Nội vụ: Giuse Trần Thiện", phone: "" },
               { name: "Thư Ký: Martino Phạm Công Danh", phone: "" },
