@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navItems = ['Home', 'About', 'Mass', 'Bulletin', 'Members', 'Community', 'Donate'];
+  const navItems = ['Home', 'About', 'Mass', 'Bulletin', 'Community', 'Donate'];
   
   return (
     <nav className="bg-gray-100 shadow-md">
