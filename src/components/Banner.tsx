@@ -6,7 +6,7 @@ export default function Banner() {
       {/* Background Image */}
       <div className="absolute inset-0 w-full h-full">
         <Image
-          src="/images/banner-bg.jpg" // Update this path to match your image
+          src="/images/banner-bg.jpg"
           alt="Church Banner"
           fill
           className="object-cover object-[center_30%]"
@@ -15,7 +15,7 @@ export default function Banner() {
       </div>
       
       {/* Overlay to ensure text is readable */}
-      <div className="absolute inset-0 bg-black/30" /> {/* Adjust opacity as needed */}
+      <div className="absolute inset-0 bg-black/30" />
       
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 h-full">

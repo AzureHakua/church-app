@@ -9,6 +9,9 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'CỘNG ĐOÀN THÁNH GIUSE',
   description: 'Welcome to our church community',
+  appleWebApp: {
+    title: 'St. Joseph Parish',
+  }
 }
 
 export default function RootLayout({
